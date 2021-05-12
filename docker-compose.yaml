@@ -17,11 +17,11 @@ services:
 
   # Collector
   otel-collector:
-    image: ${OTELCOL_IMG}
+    image: otel/opentelemetry-collector-dev:latest
     command: ["--config=/etc/otel-collector-config.yaml",  "--log-level=DEBUG"] 
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
-    ports:
+    #ports:
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
